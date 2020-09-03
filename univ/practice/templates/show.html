@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Show</title>
+{% endblock title %}
+
+{% block content %}
+
+
+<div>
+    <form method="post">
+    {% csrf_token %}
+    {{form}}
+
+    <div>
+        {% if secondform %}
+        {% csrf_token %}
+        <br>
+        {{secondform}}
+        {% endif %}
+
+        <br>
+
+        <button type="submit" href="{% url 'show' %}?a=3">sent data</button>
+
+        </form>
+    <div>
+<div>
+
+<div>
+    {% if  i  %}
+    <img src='{{i.img.url}}' alt=''>
+    {% endif %}
+<div>
+
+<div>
+    <br>
+    <br>
+    {% if p %}
+        <h3> f(x) = {{ p }} </h3>
+    {% endif %}
+
+<div>
+
+<div>
+    <br>
+    <a href={% url 'show' %}> restart </a>
+    <br>
+    <a href={% url 'profile' %}> profile </a>
+    <br>
+    <a href={% url 'home' %}> upload new data file </a>
+<div>
+
+
+{% endblock content %}
