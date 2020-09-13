@@ -19,8 +19,7 @@
     </p>
     {% endfor %} {% endcomment %}
     {{form.as_p}}
-    <button type="submit">SignUp</button>
+    <button class="btn btn-primary" type="submit">SignUp</button>
 </form>
-<br>
-<a href={% url 'login' %}>already have account?</a>
+<a type="button" style="display: inline; margin-top: 10px;" class="btn btn-primary" href={% url 'login' %}>already have account?</a>
 {% endblock content %}

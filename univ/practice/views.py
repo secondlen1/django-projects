@@ -83,7 +83,7 @@ def show(request):
         form = ChoiceForm()
     return render(request, 'show.html', {'form': form, 'secondform': secondform, 'i': i, 'p': p})
 
-
+@login_required
 def profile(request):
     return render(request, 'profile.html', {'images': Img.objects.filter(user=request.user)})
 

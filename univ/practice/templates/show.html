@@ -9,7 +9,7 @@
 
 
 <div>
-    <form method="post">
+    <form class='text-center' method="post">
     {% csrf_token %}
     {{form}}
 
@@ -22,7 +22,7 @@
 
         <br>
 
-        <button type="submit" href="{% url 'show' %}?a=3">sent data</button>
+        <button type="submit" class="btn btn-primary">sent data</button>
 
         </form>
     <div>
@@ -43,13 +43,13 @@
 
 <div>
 
-<div>
+<div class="function">
     <br>
-    <a href={% url 'show' %}> restart </a>
+    <a class="btn btn-primary" href={% url 'show' %}> restart </a>
     <br>
-    <a href={% url 'profile' %}> profile </a>
+    <a class="btn btn-primary"  href={% url 'profile' %}> profile </a>
     <br>
-    <a href={% url 'home' %}> upload new data file </a>
+    <a class="btn btn-primary" href={% url 'home' %}> upload new data file </a>
 <div>
 
 

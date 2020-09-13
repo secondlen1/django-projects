@@ -5,7 +5,13 @@
 {% endblock title %}
 
 {% block content %}
-<h2>Your history<h2>
+<a class="btn btn-primary" href={% url 'home' %}>< upload data </a>
+<a class="btn btn-primary" href={% url 'show' %}> Build Graphic </a>
+<h2 class="text-center">Your history<h2>
+<div class="container">
+    <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
 {% for img in images %}
     <p>
         <h1>{{img.title}}</h1>
@@ -15,6 +21,11 @@
         <img src={{img.img.url}}>
     </p>
 {% endfor %}
-<a href={% url 'home' %}> upload data </a>
+    </div>
+    <div class="col-md-2"></div>
+    </div>
+</div>
+
+<a class="btn btn-primary" href=#>Back to Top </a>
 
 {% endblock content %}

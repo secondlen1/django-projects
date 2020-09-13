@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+
+button > a {
+    color: white;
+}
+
+br > button {
+    float: left;
+}
+
+.btn {
+    margin-top: 5px;
+}
+
+.lf  button {
+    width: 100%;
+
+}
+
+a.btn {
+    display: block;
+    width: 100%;
+}
+
+.function a {
+    display: inline-block;
+    width: 200px;
+}
