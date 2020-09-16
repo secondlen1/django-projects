@@ -33,6 +33,7 @@ def signup(request):
 def home(request):
     page = int(request.GET.get('page', '1'))
     tags = request.GET.get('tag', 0)
+    staff = request.user.is_staff
     if page < 1:
         if not request.GET._mutable:
             request.GET._mutable = True
@@ -46,7 +47,8 @@ def home(request):
         'pages': pages,
         'posts': ten_posts,
         'page': page,
-        'tag': tags
+        'tag': tags,
+        'staff': staff
     })
 
 def singleview(request):
