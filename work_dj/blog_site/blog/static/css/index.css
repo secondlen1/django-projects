@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+
+
+.btn {
+    margin-top: 5px;
+}
+
+
+a.btn {
+    display: block;
+    width: 100%;
+}
+
+

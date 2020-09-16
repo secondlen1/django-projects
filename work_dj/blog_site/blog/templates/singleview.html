@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{post.title}}
+{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+            <div class="col-md-8">
+
+                <div class="post">
+
+                <div class="title"><a href="{% url 'SinglePost' %}?title={{post.title}}"><span>{{post.title}}</span></a></div>
+                {% if post.img %}
+
+                <img src={{post.img.url}}>
+                  
+                {% endif %}
+                <div class="text">{{post.content}}</div>
+                <div class="time">created: {{post.created_at}}, modified: {{post.modificated_at}}</div>
+                <div class="author">Author: {{post.creator }}</div>
+                <div class="tags">Tags:{% for tag in tags %}
+                  <a href="{% url 'home' %}?tag={{tag.title}}">#{{tag.title}}</a>
+                {% endfor %}</div> 
+                
+                </div>
+                <a type='button' class='btn btn-primary' href="{% url 'home' %}">view all posts</a>
+            </div>
+
+        <div class="col-md-2"></div>
+
+    </div>
+
+
+</div>  
+{% endblock content %}
