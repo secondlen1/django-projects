@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
-from django.views.generic import FormView
+from django.urls import reverse_lazy
+from django.views.generic import FormView, DetailView, ListView, DeleteView
 from .forms import PostForm
 from .models import Post
 # Create your views here.
@@ -12,7 +13,7 @@ class PostView(FormView):
         'content': 'Type your message here'
     }
     template_name = 'index.html'
-    success_url = 'admin'
+    success_url = 'list'
 
     def form_valid(self, form):
         form = form.cleaned_data
@@ -29,3 +30,24 @@ class PostView(FormView):
         except Post.DoesNotExist:
             context['last_post'] = False
         return context
+
+
+class PostDetailView(DetailView):
+    model = Post
+    context_object_name = 'post'
+    extra_context = {
+        'latest': Post.objects.all().order_by('-pk')[:3]
+    }
+
+    template_name = 'detail.html'
+
+class PostsList(ListView):
+    context_object_name = 'posts'
+    template_name = 'list.html'
+    model = Post
+
+
+class DeletePost(DeleteView):
+    model = Post
+    template_name = 'post_check_delete.html'
+    success_url = reverse_lazy('list')

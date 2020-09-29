@@ -18,7 +18,7 @@
 
 <form method="POST">
   {% csrf_token %}
-{{ form }}
+{{ form.as_ul }}
 <input type='submit'>
 </form>
 {% endblock content %}

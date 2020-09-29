@@ -19,5 +19,8 @@ from cbv import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.PostView.as_view(), name='form' )
+    path('',views.PostView.as_view(), name='form' ),
+    path('list/', views.PostsList.as_view(), name='list'),
+    path('post/<int:pk>/', views.PostDetailView.as_view(), name='detail'),
+    path('delete/<int:pk>/', views.DeletePost.as_view(), name='delete')
 ]
