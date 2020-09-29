@@ -45,9 +45,15 @@ class PostsList(ListView):
     context_object_name = 'posts'
     template_name = 'list.html'
     model = Post
+    paginate_by = 2
+    paginate_orphans = 1
 
 
 class DeletePost(DeleteView):
     model = Post
     template_name = 'post_check_delete.html'
     success_url = reverse_lazy('list')
+
+
+def list_view(request):
+    pass
