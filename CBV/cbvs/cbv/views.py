@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from django.views.generic import FormView, DetailView, ListView, DeleteView
 from .forms import PostForm
 from .models import Post
+from django.core.paginator import Paginator
 # Create your views here.
 
 class PostView(FormView):
@@ -55,5 +56,11 @@ class DeletePost(DeleteView):
     success_url = reverse_lazy('list')
 
 
-def list_view(request):
-    pass
+
+# function based view with paginator
+# def list_view(request):
+#     objects = Post.objects.all()
+#     paginator = Paginator(object_list=objects, per_page=3, orphans=2)
+#     page_number = request.GET.get('page', 1)
+#     page_obj = paginator.get_page(page_number)
+#     return render(request, 'list.html', {'page_obj': page_obj})
